@@ -1,0 +1,76 @@
+{
+  "project": "The Silent Path",
+  "version": "2.5",
+  "mode": "Hollywood Director Complete Sample Scene",
+  "aspectRatio": "2.39:1",
+  "frameRate": "24fps",
+  "visualStyle": "Cinematic realism + premium storyboard sketch",
+  "scriptExcerpt": "EXT. DESERT RIDGE - SUNSET. Moses walks alone... purpose enters his face.",
+  "continuityLocks": [
+    "Moses face and robe",
+    "Staff prop",
+    "Desert ridge location",
+    "Left-to-right screen direction",
+    "Warm sunset light"
+  ],
+  "panels": [
+    {
+      "panel": "01",
+      "image": "/demo-frames-premium/premium-panel-01.png",
+      "prompt": "Cinematic storyboard panel 01, Extreme Wide Shot, Moses on desert ridge at sunset, dramatic lighting, respectful biblical epic, consistent wardrobe and staff, 2.39:1 composition."
+    },
+    {
+      "panel": "02",
+      "image": "/demo-frames-premium/premium-panel-02.png",
+      "prompt": "Cinematic storyboard panel 02, Medium Tracking Shot, Moses on desert ridge at sunset, dramatic lighting, respectful biblical epic, consistent wardrobe and staff, 2.39:1 composition."
+    },
+    {
+      "panel": "03",
+      "image": "/demo-frames-premium/premium-panel-03.png",
+      "prompt": "Cinematic storyboard panel 03, Close-up, 85mm, Moses on desert ridge at sunset, dramatic lighting, respectful biblical epic, consistent wardrobe and staff, 2.39:1 composition."
+    },
+    {
+      "panel": "04",
+      "image": "/demo-frames-premium/premium-panel-04.png",
+      "prompt": "Cinematic storyboard panel 04, Macro insert, Moses on desert ridge at sunset, dramatic lighting, respectful biblical epic, consistent wardrobe and staff, 2.39:1 composition."
+    },
+    {
+      "panel": "05",
+      "image": "/demo-frames-premium/premium-panel-05.png",
+      "prompt": "Cinematic storyboard panel 05, Reverse Wide, Moses on desert ridge at sunset, dramatic lighting, respectful biblical epic, consistent wardrobe and staff, 2.39:1 composition."
+    },
+    {
+      "panel": "06",
+      "image": "/demo-frames-premium/premium-panel-06.png",
+      "prompt": "Cinematic storyboard panel 06, Profile Silhouette, Moses on desert ridge at sunset, dramatic lighting, respectful biblical epic, consistent wardrobe and staff, 2.39:1 composition."
+    },
+    {
+      "panel": "07",
+      "image": "/demo-frames-premium/premium-panel-07.png",
+      "prompt": "Cinematic storyboard panel 07, Overhead 180\u00b0 Layout, Moses on desert ridge at sunset, dramatic lighting, respectful biblical epic, consistent wardrobe and staff, 2.39:1 composition."
+    },
+    {
+      "panel": "08",
+      "image": "/demo-frames-premium/premium-panel-08.png",
+      "prompt": "Cinematic storyboard panel 08, Hero Approval Frame, Moses on desert ridge at sunset, dramatic lighting, respectful biblical epic, consistent wardrobe and staff, 2.39:1 composition."
+    }
+  ],
+  "audioPlan": {
+    "dialogue": "Scratch VO: Why would You choose someone afraid to speak?",
+    "music": "Low strings, breath-like pads, restrained choir rise",
+    "sfx": [
+      "wind falls silent",
+      "sand step",
+      "robe movement",
+      "staff drag"
+    ]
+  },
+  "exportFiles": [
+    "cineloom-director-storyboard-package.pdf",
+    "cineloom-animatic-preview.mp4",
+    "cineloom-shot-list.csv",
+    "cineloom-prompt-package.json",
+    "cineloom-qa-report.pdf",
+    "cineloom-demo-export-package.zip"
+  ]
+}

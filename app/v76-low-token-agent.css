@@ -1,0 +1,378 @@
+/* v7.6 Lowest-token director agent workflow */
+.lt-agent {
+  display: grid;
+  gap: 28px;
+  padding-bottom: 56px;
+}
+
+.lt-agent-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 24px;
+  align-items: stretch;
+  padding: 28px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fbff 58%, #eef6ff 100%);
+  border: 1px solid #dbeafe;
+  box-shadow: 0 22px 70px rgba(15, 23, 42, 0.08);
+}
+
+.lt-kicker,
+.lt-panel-head span {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  border-radius: 999px;
+  padding: 6px 11px;
+  background: #eff6ff;
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.lt-agent-hero h2 {
+  margin: 14px 0 12px;
+  max-width: 760px;
+  color: #0f172a;
+  font-size: clamp(32px, 5vw, 58px);
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+}
+
+.lt-agent-hero p {
+  margin: 0;
+  max-width: 760px;
+  color: #475569;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.lt-savings-card {
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  border-radius: 24px;
+  padding: 24px;
+  background: #0f172a;
+  color: #fff;
+  min-height: 210px;
+}
+
+.lt-savings-card span,
+.lt-savings-card small {
+  color: #bfdbfe;
+  font-weight: 700;
+}
+
+.lt-savings-card strong {
+  color: #22c55e;
+  font-size: 64px;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  margin: 14px 0;
+}
+
+.lt-steps {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.lt-steps div,
+.lt-panel,
+.lt-output {
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.06);
+}
+
+.lt-steps div {
+  padding: 18px;
+  display: grid;
+  gap: 8px;
+}
+
+.lt-steps b {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: #dc2626;
+  color: #fff;
+}
+
+.lt-steps strong {
+  color: #0f172a;
+  font-size: 15px;
+}
+
+.lt-steps span {
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.lt-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: 18px;
+}
+
+.lt-panel {
+  padding: 22px;
+  display: grid;
+  gap: 18px;
+}
+
+.lt-panel-main {
+  grid-column: span 1;
+}
+
+.lt-panel-head h3 {
+  margin: 10px 0 0;
+  color: #0f172a;
+  font-size: 24px;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.lt-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.lt-form-grid label,
+.lt-textarea {
+  display: grid;
+  gap: 8px;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.lt-form-grid input,
+.lt-textarea textarea {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 16px;
+  padding: 13px 14px;
+  color: #0f172a;
+  background: #f8fafc;
+  font: inherit;
+  font-size: 16px;
+}
+
+.lt-textarea textarea {
+  min-height: 140px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.lt-board-target {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 14px;
+  border-radius: 18px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+}
+
+.lt-board-target strong {
+  color: #0f172a;
+  font-size: 20px;
+}
+
+.lt-board-target em {
+  font-style: normal;
+  margin-left: auto;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.lt-choice-stack,
+.lt-token-modes,
+.lt-locks,
+.lt-actions {
+  display: grid;
+  gap: 10px;
+}
+
+.lt-choice-stack button,
+.lt-token-modes button,
+.lt-locks button {
+  text-align: left;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  border-radius: 18px;
+  padding: 14px;
+  color: #334155;
+  cursor: pointer;
+}
+
+.lt-choice-stack button strong,
+.lt-token-modes button strong {
+  display: block;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.lt-choice-stack button span,
+.lt-token-modes button span {
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.lt-token-modes button em {
+  display: inline-flex;
+  margin-bottom: 8px;
+  border-radius: 999px;
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 4px 9px;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 900;
+}
+
+.lt-choice-stack button.active,
+.lt-token-modes button.active,
+.lt-locks button.active {
+  border-color: #2563eb;
+  background: #eff6ff;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.lt-locks {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.lt-locks button.active {
+  color: #166534;
+  border-color: #16a34a;
+  background: #f0fdf4;
+}
+
+.lt-context-pack ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #334155;
+  line-height: 1.85;
+}
+
+.lt-blocked {
+  display: grid;
+  gap: 6px;
+  border-radius: 18px;
+  padding: 14px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+}
+
+.lt-blocked span,
+.lt-note {
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.lt-actions button {
+  border: 0;
+  border-radius: 16px;
+  padding: 14px 16px;
+  background: #2563eb;
+  color: #fff;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.lt-actions button.secondary {
+  background: #f1f5f9;
+  color: #0f172a;
+  border: 1px solid #cbd5e1;
+}
+
+.lt-actions button.dark {
+  background: #0f172a;
+}
+
+.lt-actions button:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+.lt-output-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.lt-output {
+  padding: 20px;
+  min-width: 0;
+}
+
+.lt-output h3 {
+  margin: 0 0 14px;
+  color: #0f172a;
+}
+
+.lt-output pre {
+  margin: 0;
+  max-height: 430px;
+  overflow: auto;
+  border-radius: 18px;
+  background: #0f172a;
+  color: #dbeafe;
+  padding: 16px;
+  font-size: 12px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 1024px) {
+  .lt-agent-hero,
+  .lt-grid,
+  .lt-output-grid {
+    grid-template-columns: 1fr;
+  }
+  .lt-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .lt-agent-hero,
+  .lt-panel,
+  .lt-output {
+    border-radius: 20px;
+    padding: 18px;
+  }
+  .lt-steps,
+  .lt-form-grid,
+  .lt-locks {
+    grid-template-columns: 1fr;
+  }
+  .lt-agent-hero h2 {
+    font-size: 34px;
+  }
+  .lt-savings-card {
+    min-height: 150px;
+  }
+  .lt-savings-card strong {
+    font-size: 48px;
+  }
+  .lt-board-target em {
+    margin-left: 0;
+    width: 100%;
+  }
+}

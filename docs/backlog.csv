@@ -1,0 +1,13 @@
+Rank,Epic,Story/Task,Type,Priority,Sprint,Acceptance Criteria
+1,Launch Gate,"As a founder, I want the site hidden until launch so public users see under construction only.",Story,Critical,Sprint 1,Unauthenticated users see construction page and cannot access studio routes.
+2,Studio Shell,Build cinematic dashboard shell with navigation and pipeline progress.,Task,Critical,Sprint 1,Dashboard loads with pipeline stages and protected routes.
+3,Script Studio,"As a producer, I can upload or paste a script for validation.",Story,Critical,Sprint 2,Script text accepts paste/upload and validation results appear.
+4,Story Analysis,"Generate logline, theme, emotional arc, characters, and locations.",Story,High,Sprint 2,Story analysis has revise/approve actions.
+5,Beat Breakdown,Generate Save-the-Cat-style beat breakdown with scene ranges.,Story,Critical,Sprint 3,"Each beat has summary, purpose, continuity notes, confidence, status."
+6,Scene Breakdown,Generate scene cards from approved beats.,Story,Critical,Sprint 3,"Each scene has slugline, characters, location, runtime, purpose."
+7,Shot Design,Generate shot list using cinematography rules.,Story,Critical,Sprint 4,"Shot list includes lens, movement, 180 axis, continuity, emotion."
+8,Static Storyboard,Generate storyboard panels from approved shots.,Story,Critical,Sprint 5,"Panel cards show status, prompt, camera, emotion, revision notes."
+9,Panel Editor,Allow per-panel prompt edits and continuity locks.,Story,Critical,Sprint 5,Panel editor saves prompt/revision and approval state.
+10,Animatic,Create dynamic storyboard timeline from approved panels.,Story,High,Sprint 6,"Timeline supports duration, motion, voice/music/SFX slots."
+11,Video Handoff,Export package for video generation providers.,Story,High,Sprint 7,"JSON export includes script, beats, scenes, shots, panels, QA."
+12,Auto QA,Run readiness and continuity checks.,Story,High,Sprint 7,QA dashboard shows findings and recommendations.

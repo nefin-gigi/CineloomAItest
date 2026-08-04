@@ -1,0 +1,185 @@
+{
+  "project": "CineLoom flagship 60-second sample scene",
+  "runtime_seconds": 64,
+  "aspect_ratio": "16:9",
+  "visual_language": "cinematic realism + professional storyboard blocking",
+  "panels": [
+    {
+      "panel": 1,
+      "title": "01 Opening Image",
+      "shot": "Wide establishing shot",
+      "prompt": "A silent studio door glows in the dark.",
+      "locks": [
+        "character",
+        "style",
+        "180-degree-axis"
+      ]
+    },
+    {
+      "panel": 2,
+      "title": "02 Script Spark",
+      "shot": "Insert shot",
+      "prompt": "A screenplay page catches projector light.",
+      "locks": [
+        "character",
+        "style",
+        "180-degree-axis"
+      ]
+    },
+    {
+      "panel": 3,
+      "title": "03 Crossing Threshold",
+      "shot": "Medium tracking",
+      "prompt": "The filmmaker reaches toward the door.",
+      "locks": [
+        "character",
+        "style",
+        "180-degree-axis"
+      ]
+    },
+    {
+      "panel": 4,
+      "title": "04 World Opens",
+      "shot": "Wide reveal",
+      "prompt": "The page becomes a living movie set.",
+      "locks": [
+        "character",
+        "style",
+        "180-degree-axis"
+      ]
+    },
+    {
+      "panel": 5,
+      "title": "05 Character Arrival",
+      "shot": "Over shoulder",
+      "prompt": "A character steps out of the written scene.",
+      "locks": [
+        "character",
+        "style",
+        "180-degree-axis"
+      ]
+    },
+    {
+      "panel": 6,
+      "title": "06 Axis Locked",
+      "shot": "Overhead plan",
+      "prompt": "Camera geography and 180-degree axis appear.",
+      "locks": [
+        "character",
+        "style",
+        "180-degree-axis"
+      ]
+    },
+    {
+      "panel": 7,
+      "title": "07 First Close-Up",
+      "shot": "Emotional close-up",
+      "prompt": "Fear turns into creative certainty.",
+      "locks": [
+        "character",
+        "style",
+        "180-degree-axis"
+      ]
+    },
+    {
+      "panel": 8,
+      "title": "08 Shot Language",
+      "shot": "Dolly push-in",
+      "prompt": "The frame tightens as the choice becomes clear.",
+      "locks": [
+        "character",
+        "style",
+        "180-degree-axis"
+      ]
+    },
+    {
+      "panel": 9,
+      "title": "09 Director Note",
+      "shot": "Review card",
+      "prompt": "A prompt correction protects character and style.",
+      "locks": [
+        "character",
+        "style",
+        "180-degree-axis"
+      ]
+    },
+    {
+      "panel": 10,
+      "title": "10 Regenerated Panel",
+      "shot": "Matched close-up",
+      "prompt": "The same shot returns more cinematic.",
+      "locks": [
+        "character",
+        "style",
+        "180-degree-axis"
+      ]
+    },
+    {
+      "panel": 11,
+      "title": "11 Animatic Timing",
+      "shot": "Timeline view",
+      "prompt": "The still frames begin to move.",
+      "locks": [
+        "character",
+        "style",
+        "180-degree-axis"
+      ]
+    },
+    {
+      "panel": 12,
+      "title": "12 Scratch Voice",
+      "shot": "Audio cue",
+      "prompt": "Dialogue, music, and SFX find the beat.",
+      "locks": [
+        "character",
+        "style",
+        "180-degree-axis"
+      ]
+    },
+    {
+      "panel": 13,
+      "title": "13 Producer Package",
+      "shot": "Export moment",
+      "prompt": "Storyboard, shot list, prompts, and QA assemble.",
+      "locks": [
+        "character",
+        "style",
+        "180-degree-axis"
+      ]
+    },
+    {
+      "panel": 14,
+      "title": "14 Greenlight Board",
+      "shot": "Pitch frame",
+      "prompt": "The production-ready package is ready to share.",
+      "locks": [
+        "character",
+        "style",
+        "180-degree-axis"
+      ]
+    },
+    {
+      "panel": 15,
+      "title": "15 Final Image",
+      "shot": "Hero wide",
+      "prompt": "The filmmaker watches the story become cinema.",
+      "locks": [
+        "character",
+        "style",
+        "180-degree-axis"
+      ]
+    },
+    {
+      "panel": 16,
+      "title": "16 CineLoom End Card",
+      "shot": "Title card",
+      "prompt": "Script to storyboard to animatic to production package.",
+      "locks": [
+        "character",
+        "style",
+        "180-degree-axis"
+      ]
+    }
+  ],
+  "use": "public demo-safe sample package; replace with live endpoint output in production"
+}

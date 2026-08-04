@@ -1,0 +1,39 @@
+name: CineLoom Security Pipeline
+
+on:
+  workflow_dispatch:
+    inputs:
+      staging_url:
+        description: 'Approved staging URL to scan, for example https://stg.cineloom.ai'
+        required: false
+  pull_request:
+  push:
+    branches: [ main, staging ]
+
+jobs:
+  source-security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run validate-input-coverage
+      - run: npm run top-security-check
+      - run: npm run penetration-test
+      - run: npm audit --audit-level=moderate
+
+  zap-baseline:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: OWASP ZAP baseline scan against approved staging URL
+        uses: zaproxy/action-baseline@v0.14.0
+        with:
+          target: ${{ github.event.inputs.staging_url || secrets.STAGING_URL }}
+          fail_action: true
+          allow_issue_writing: false
+          artifact_name: zap-baseline-report

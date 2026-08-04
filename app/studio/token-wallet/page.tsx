@@ -1,0 +1,7 @@
+import { AppShell } from '@/components/AppShell';
+import { PageHeader } from '@/components/PageHeader';
+import { tokenPricing } from '@/lib/v3-production-data';
+
+export default function TokenWalletPage() {
+  return <AppShell active="Token Wallet"><PageHeader eyebrow="Tokens" title="Token wallet, ledger, and margin controls" description="Every generation action must estimate tokens, reserve tokens, record spend, and refund only on failed provider jobs." /><section className="grid two"><div className="card featured"><span className="badge premium">Workspace balance</span><div className="kpi">12,840</div><p className="muted">Available tokens · auto top-up enabled below 1,000 tokens · Studio plan renews monthly.</p><button className="btn primary">Buy token pack</button></div><div className="card"><h2>Ledger rules</h2><div className="stage-checklist"><div className="check"><span>Reserve before provider call</span><span>Required</span></div><div className="check"><span>Refund failed jobs</span><span>Required</span></div><div className="check"><span>Block insufficient balance</span><span>Required</span></div><div className="check"><span>Expire promo tokens</span><span>Optional</span></div></div></div></section><section className="card"><h2>Token cost menu</h2><div className="table-wrap"><table><thead><tr><th>Feature</th><th>Tokens</th><th>Margin Guard</th></tr></thead><tbody>{tokenPricing.map((row) => <tr key={row.feature}><td>{row.feature}</td><td>{row.tokens}</td><td>{row.marginGuard}</td></tr>)}</tbody></table></div></section></AppShell>;
+}

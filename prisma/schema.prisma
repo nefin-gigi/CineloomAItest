@@ -1,0 +1,361 @@
+// CineLoom.ai v3.0 Prisma starter schema. SQL migration is also provided in /database.
+generator client { provider = "prisma-client-js" }
+datasource db { provider = "postgresql" url = env("DATABASE_URL") }
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  fullName  String?
+  createdAt DateTime @default(now())
+}
+
+model Workspace {
+  id                   String   @id @default(uuid())
+  name                 String
+  plan                 String   @default("preview")
+  stripeCustomerId     String?
+  stripeSubscriptionId String?
+  subscriptionStatus   String   @default("trialing")
+  tokenBalance         Int      @default(250)
+  monthlyTokensUsed    Int      @default(0)
+  createdAt            DateTime @default(now())
+}
+
+model Project {
+  id             String   @id @default(uuid())
+  workspaceId    String
+  title          String
+  format         String?
+  genre          String?
+  aspectRatio    String   @default("2.39:1")
+  frameRate      String   @default("24fps")
+  visualStyle    String?
+  status         String   @default("draft")
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+
+model IntegrationConnector {
+  id             String   @id @default(uuid())
+  connectorKey   String   @unique
+  category       String
+  displayName    String
+  mode           String   @default("demo")
+  endpointUrl    String?
+  authMode       String?
+  secretEnvName  String?
+  timeoutMs      Int      @default(120000)
+  isEnabled      Boolean  @default(false)
+  isRecommended  Boolean  @default(true)
+  metadata       Json?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model IntegrationHealthCheck {
+  id           String   @id @default(uuid())
+  connectorKey String
+  status       String
+  message      String?
+  latencyMs    Int?
+  missingEnv   Json?
+  checkedAt    DateTime @default(now())
+
+  @@index([connectorKey, checkedAt])
+}
+
+model FeatureFlag {
+  id          String   @id @default(uuid())
+  flagKey     String   @unique
+  flagValue   String
+  description String?
+  environment String   @default("production")
+  changedBy   String?
+  changedAt   DateTime @default(now())
+}
+
+model ProviderUsageEvent {
+  id                 String   @id @default(uuid())
+  workspaceId         String?
+  projectId           String?
+  providerKey         String
+  jobType             String
+  providerRequestId   String?
+  status              String
+  estimatedTokens     Int      @default(0)
+  actualTokens        Int      @default(0)
+  estimatedCostCents  Int      @default(0)
+  actualCostCents     Int      @default(0)
+  latencyMs           Int?
+  metadata            Json?
+  createdAt           DateTime @default(now())
+
+  @@index([workspaceId, createdAt])
+}
+
+model SuperAdminAuditEvent {
+  id          String   @id @default(uuid())
+  actorUserId String?
+  action      String
+  targetType  String
+  targetKey   String
+  beforeValue Json?
+  afterValue  Json?
+  ipAddress   String?
+  userAgent   String?
+  createdAt   DateTime @default(now())
+
+  @@index([createdAt])
+}
+
+
+model ExecutionEndpointContract {
+  id                   String   @id @default(uuid())
+  stageKey             String   @unique
+  displayName          String
+  endpointUrlEnv        String
+  secretEnvName         String
+  authMode             String   @default("bearer_env_secret")
+  timeoutMs            Int      @default(120000)
+  tokenPolicy          String   @default("none")
+  requiredResponseKeys Json     @default("[]")
+  fallbackBehavior     String?
+  isEnabled            Boolean  @default(false)
+  liveModeEnabled      Boolean  @default(false)
+  metadata             Json?
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+}
+
+model ExecutionEndpointTestRun {
+  id                  String   @id @default(uuid())
+  stageKey            String
+  status              String
+  ok                  Boolean  @default(false)
+  latencyMs           Int?
+  httpStatus          Int?
+  missingEnv          Json?
+  missingResponseKeys Json?
+  requestPreview      Json?
+  responsePreview     Json?
+  message             String?
+  testedBy            String?
+  testedAt            DateTime @default(now())
+
+  @@index([stageKey, testedAt])
+}
+
+model ExecutionJob {
+  id                 String   @id @default(uuid())
+  workspaceId         String?
+  projectId           String?
+  stageKey            String
+  status              String   @default("queued")
+  idempotencyKey      String   @unique
+  tokenReservationId  String?
+  estimatedTokens     Int      @default(0)
+  actualTokens        Int      @default(0)
+  providerRequestId   String?
+  inputAssetIds       Json?
+  outputAssetIds      Json?
+  payload             Json?
+  result              Json?
+  errorMessage        String?
+  createdAt           DateTime @default(now())
+  startedAt           DateTime?
+  completedAt         DateTime?
+  failedAt            DateTime?
+
+  @@index([workspaceId, projectId, createdAt])
+}
+
+model MarketplaceTemplate {
+  id             String   @id @default(uuid())
+  workspaceId    String?
+  sellerUserId   String?
+  title          String
+  templateType   String
+  description    String?
+  priceCents     Int      @default(0)
+  commissionRate Float    @default(0.20)
+  status         String   @default("draft")
+  rating         Float?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@index([templateType, status])
+}
+
+model DeveloperApiKey {
+  id                 String   @id @default(uuid())
+  workspaceId        String
+  keyHash            String
+  label              String
+  scopes             Json     @default("[]")
+  rateLimitPerMinute Int      @default(60)
+  status             String   @default("active")
+  lastUsedAt         DateTime?
+  createdAt          DateTime @default(now())
+
+  @@index([workspaceId, status])
+}
+
+model DeveloperApiUsageEvent {
+  id            String   @id @default(uuid())
+  apiKeyId      String?
+  apiProduct    String
+  billableUnit  String
+  unitCount     Int      @default(1)
+  tokensCharged Int      @default(0)
+  traceId       String?
+  status        String   @default("succeeded")
+  createdAt     DateTime @default(now())
+
+  @@index([apiProduct, createdAt])
+}
+
+model PublicStoryboardShare {
+  id               String   @id @default(uuid())
+  projectId        String
+  workspaceId      String
+  createdByUserId  String?
+  visibility       String   @default("public_watermarked")
+  watermarkEnabled Boolean  @default(true)
+  allowRemix       Boolean  @default(true)
+  allowComments    Boolean  @default(true)
+  viewCount        Int      @default(0)
+  remixCount       Int      @default(0)
+  expiresAt        DateTime?
+  createdAt        DateTime @default(now())
+
+  @@index([workspaceId, createdAt])
+}
+
+model ReferralEvent {
+  id             String   @id @default(uuid())
+  referralCode   String   @unique
+  inviterUserId  String?
+  invitedEmail   String?
+  referredUserId String?
+  rewardTokens   Int      @default(250)
+  status         String   @default("sent")
+  createdAt      DateTime @default(now())
+  convertedAt    DateTime?
+}
+
+model EnterpriseTrustControl {
+  id          String   @id @default(uuid())
+  workspaceId String
+  controlKey  String
+  status      String   @default("configured")
+  evidenceUrl String?
+  ownerRole   String?
+  reviewDueAt DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([workspaceId, controlKey])
+}
+
+model FilmToolIntegration {
+  id               String   @id @default(uuid())
+  workspaceId       String?
+  toolName          String
+  endpointEnvName   String?
+  connectionStatus  String   @default("not_connected")
+  lastSyncAt        DateTime?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@index([workspaceId, toolName])
+}
+
+model RightsReceipt {
+  id                    String   @id @default(uuid())
+  projectId              String
+  workspaceId            String
+  commercialUseAllowed   Boolean  @default(false)
+  uploadedIpAttested     Boolean  @default(false)
+  modelTrainingOptOut    Boolean  @default(true)
+  publicFigureRestricted Boolean  @default(true)
+  exportPackageId        String?
+  receiptJson            Json     @default("{}")
+  createdAt              DateTime @default(now())
+
+  @@index([workspaceId, projectId])
+}
+
+model Entitlement {
+  id          String   @id @default(uuid())
+  workspaceId String
+  planKey     String
+  featureKey  String
+  limitValue  Int?
+  enabled     Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([workspaceId, featureKey])
+}
+
+model OnboardingStep {
+  id          String   @id @default(uuid())
+  workspaceId String
+  stepKey     String
+  status      String   @default("pending")
+  completedAt DateTime?
+  createdAt   DateTime @default(now())
+
+  @@index([workspaceId, status])
+}
+
+model SupportTicket {
+  id               String   @id @default(uuid())
+  workspaceId       String?
+  userId            String?
+  category          String
+  priority          String   @default("normal")
+  subject           String
+  description       String?
+  status            String   @default("open")
+  externalTicketId  String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@index([workspaceId, status])
+}
+
+model StatusComponent {
+  id            String   @id @default(uuid())
+  componentKey  String   @unique
+  name          String
+  status        String   @default("operational")
+  sloTarget     String   @default("99.9%")
+  lastCheckedAt DateTime?
+  createdAt     DateTime @default(now())
+}
+
+model FunnelEvent {
+  id          String   @id @default(uuid())
+  anonymousId String?
+  userId      String?
+  workspaceId String?
+  eventName   String
+  funnelStage String
+  properties  Json     @default("{}")
+  createdAt   DateTime @default(now())
+
+  @@index([funnelStage, createdAt])
+}
+
+model LaunchGateResult {
+  id        String   @id @default(uuid())
+  gateKey   String
+  status    String
+  evidence  Json     @default("{}")
+  checkedAt DateTime @default(now())
+  checkedBy String?
+
+  @@index([gateKey, checkedAt])
+}

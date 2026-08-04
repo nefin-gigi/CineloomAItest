@@ -1,0 +1,74 @@
+{
+  "plans": [
+    {
+      "name": "Preview",
+      "monthlyPrice": 0,
+      "includedTokens": 250,
+      "seats": 1,
+      "audience": "Film enthusiasts testing a short idea"
+    },
+    {
+      "name": "Creator",
+      "monthlyPrice": 29,
+      "includedTokens": 1500,
+      "seats": 1,
+      "audience": "YouTube creators, screenwriters, indie storytellers"
+    },
+    {
+      "name": "Studio",
+      "monthlyPrice": 149,
+      "includedTokens": 10000,
+      "seats": 5,
+      "audience": "Indie film teams, producers, agencies, production houses"
+    },
+    {
+      "name": "Enterprise",
+      "monthlyPrice": "Custom",
+      "includedTokens": "Custom",
+      "seats": "Custom",
+      "audience": "Studios, streaming teams, education networks, branded content teams"
+    }
+  ],
+  "tokenActions": [
+    {
+      "action": "Script validation",
+      "tokenCost": 15,
+      "unit": "per script page"
+    },
+    {
+      "action": "Beat breakdown",
+      "tokenCost": 120,
+      "unit": "per short script"
+    },
+    {
+      "action": "Shot design",
+      "tokenCost": 35,
+      "unit": "per scene"
+    },
+    {
+      "action": "10-second storyboard sample",
+      "tokenCost": 180,
+      "unit": "per sample"
+    },
+    {
+      "action": "Storyboard image panel",
+      "tokenCost": 45,
+      "unit": "per panel"
+    },
+    {
+      "action": "Prompt-driven correction",
+      "tokenCost": 18,
+      "unit": "per correction"
+    },
+    {
+      "action": "10-second animatic preview",
+      "tokenCost": 320,
+      "unit": "per 10 seconds"
+    },
+    {
+      "action": "Director export package",
+      "tokenCost": 75,
+      "unit": "per export"
+    }
+  ]
+}

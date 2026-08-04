@@ -1,0 +1,3 @@
+file 'frames/flagship-panel-01.png'
+duration 4
+file 'frames/flagship-panel-01.png'

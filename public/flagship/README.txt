@@ -1,0 +1,1 @@
+CineLoom v4.2 flagship sample scene assets. Demo-safe public files: 16 panels, 60-second animatic, shot list, prompt package, ZIP bundle. Real customer exports should be served by authenticated signed URLs.

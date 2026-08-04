@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="CineLoom storyboard frame 02: Tracking Burden">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#05060b"/>
+      <stop offset="0.45" stop-color="#111827"/>
+      <stop offset="1" stop-color="#02030a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="72%" cy="28%" r="45%">
+      <stop offset="0" stop-color="#2f80ed" stop-opacity="0.62"/>
+      <stop offset="0.36" stop-color="#21d07a" stop-opacity="0.20"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <rect width="1600" height="900" fill="url(#glow)"/>
+  <rect y="0" width="1600" height="92" fill="#02030a" opacity="0.92"/>
+  <rect y="808" width="1600" height="92" fill="#02030a" opacity="0.92"/>
+  <path d="M0 650 C300 565 470 620 720 555 C930 500 1120 545 1600 455 L1600 900 L0 900Z" fill="#0a0f18"/>
+  <path d="M0 708 C260 630 500 685 760 625 C1030 562 1240 608 1600 548" fill="none" stroke="rgba(255,255,255,.20)" stroke-width="5"/>
+  <circle cx="1165" cy="226" r="126" fill="#2f80ed" opacity="0.14" filter="url(#soft)"/>
+  <g transform="translate(470 420)">
+    <ellipse cx="0" cy="268" rx="88" ry="22" fill="#000" opacity="0.45"/>
+    <path d="M0 0 C45 20 65 75 48 142 L80 326 L-70 326 L-36 142 C-60 72 -45 22 0 0Z" fill="rgba(238,244,255,.78)"/>
+    <circle cx="0" cy="-25" r="38" fill="rgba(238,244,255,.86)"/>
+    <path d="M48 130 L132 330" stroke="rgba(238,244,255,.78)" stroke-width="11" stroke-linecap="round"/>
+  </g>
+  <g opacity="0.72">
+    <line x1="164" y1="164" x2="1436" y2="164" stroke="rgba(255,255,255,.10)"/>
+    <line x1="164" y1="736" x2="1436" y2="736" stroke="rgba(255,255,255,.10)"/>
+    <line x1="164" y1="164" x2="164" y2="736" stroke="rgba(255,255,255,.10)"/>
+    <line x1="1436" y1="164" x2="1436" y2="736" stroke="rgba(255,255,255,.10)"/>
+  </g>
+  <rect x="70" y="55" width="112" height="42" rx="21" fill="#2f80ed" opacity="0.88"/>
+  <text x="126" y="83" text-anchor="middle" font-family="Inter, Arial" font-size="22" font-weight="900" fill="#fff">P02</text>
+  <text x="190" y="82" font-family="Inter, Arial" font-size="30" font-weight="900" fill="#f8fbff">Tracking Burden</text>
+  <text x="82" y="846" font-family="Inter, Arial" font-size="26" font-weight="800" fill="#f8fbff">Side tracking medium</text>
+  <text x="82" y="878" font-family="Inter, Arial" font-size="18" fill="#aeb5c8">Staff and robe motion · CineLoom v2 director demo frame</text>
+</svg>

@@ -1,0 +1,55 @@
+{
+  "project": "CineLoom public sample",
+  "duration": "10 seconds",
+  "watermark": true,
+  "panels": [
+    {
+      "panel": "01",
+      "beat": "Opening image",
+      "shot": "Wide establishing shot",
+      "prompt": "A rain-slick studio backlot glows under red, green, and blue cinema light."
+    },
+    {
+      "panel": "02",
+      "beat": "Approach",
+      "shot": "Medium tracking shot",
+      "prompt": "A young filmmaker walks toward a luminous stage door, hesitant but drawn in."
+    },
+    {
+      "panel": "03",
+      "beat": "Threshold",
+      "shot": "Insert shot",
+      "prompt": "A hand reaches for a brass door handle, rain drops visible in shallow focus."
+    },
+    {
+      "panel": "04",
+      "beat": "Wonder",
+      "shot": "Close-up",
+      "prompt": "Eyes reflect the world beyond the door; fear turns into awe."
+    },
+    {
+      "panel": "05",
+      "beat": "Reveal",
+      "shot": "Over-the-shoulder",
+      "prompt": "The door opens to a vast cinematic desert set inside the studio."
+    },
+    {
+      "panel": "06",
+      "beat": "Push through",
+      "shot": "Dolly push-in",
+      "prompt": "The camera moves through the doorway into a story world of dust and moonlight."
+    },
+    {
+      "panel": "07",
+      "beat": "Reaction",
+      "shot": "Emotional close-up",
+      "prompt": "The filmmaker smiles with tears as the script becomes a living movie."
+    },
+    {
+      "panel": "08",
+      "beat": "Title beat",
+      "shot": "Hero title frame",
+      "prompt": "CineLoom.ai preview watermark appears over projector beams."
+    }
+  ]
+}

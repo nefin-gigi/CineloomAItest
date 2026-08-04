@@ -1,0 +1,377 @@
+/* CineLoom v8.0 — Cinematic Hero Upgrade
+   Loaded after responsive layout locks. The goal is premium film feeling without crowding. */
+:root {
+  --v80-ink: #09111f;
+  --v80-text: #243145;
+  --v80-muted: #66738a;
+  --v80-red: #e11d2e;
+  --v80-blue: #2563eb;
+  --v80-green: #16a34a;
+  --v80-gold: #f5b642;
+  --v80-line: #dfe7f3;
+  --v80-max: 1180px;
+  --v80-shadow: 0 30px 90px rgba(15, 23, 42, .14);
+}
+
+.v80-page {
+  background:
+    radial-gradient(circle at 78% 14%, rgba(225, 29, 46, .10), transparent 18%),
+    radial-gradient(circle at 88% 42%, rgba(37, 99, 235, .12), transparent 24%),
+    radial-gradient(circle at 12% 30%, rgba(245, 182, 66, .08), transparent 22%),
+    linear-gradient(180deg, #ffffff 0%, #f7faff 48%, #ffffff 100%) !important;
+}
+
+.v80-hero {
+  width: min(var(--v80-max), calc(100vw - 48px));
+  margin: 0 auto;
+  padding: clamp(60px, 8vw, 108px) 0 52px;
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.15fr);
+  gap: clamp(44px, 6vw, 82px);
+  align-items: center;
+}
+
+.v80-hero-copy {
+  min-width: 0;
+  max-width: 560px;
+}
+
+.v80-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
+  margin-bottom: 22px;
+  padding: 8px;
+  border: 1px solid rgba(225, 29, 46, .14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .76);
+  box-shadow: 0 12px 40px rgba(225, 29, 46, .08);
+  backdrop-filter: blur(18px);
+}
+.v80-eyebrow span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 12px;
+  border-radius: 999px;
+  color: var(--v80-red);
+  font-size: .74rem;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: .035em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.v80-eyebrow span + span {
+  color: var(--v80-blue);
+  background: #eef4ff;
+}
+
+.v80-hero h1 {
+  margin: 0;
+  max-width: 585px;
+  color: var(--v80-ink);
+  font-size: clamp(3.2rem, 5vw, 5.6rem);
+  line-height: .98;
+  letter-spacing: -.065em;
+  font-weight: 980;
+  text-wrap: balance;
+}
+.v80-hero h1 span {
+  display: inline-block;
+  color: transparent;
+  background: linear-gradient(100deg, #e11d2e 0%, #f97316 35%, #16a34a 68%, #2563eb 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.v80-lede {
+  max-width: 540px;
+  margin: 24px 0 0;
+  color: var(--v80-muted);
+  font-size: clamp(1.04rem, 1.2vw, 1.18rem);
+  line-height: 1.65;
+}
+
+.v80-actions {
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.v80-primary, .v80-secondary, .v80-ai-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 22px;
+  border-radius: 14px;
+  font-weight: 900;
+  line-height: 1;
+  white-space: nowrap;
+}
+.v80-primary {
+  color: white;
+  background: linear-gradient(135deg, #e11d2e, #dc2626 48%, #2563eb 145%);
+  box-shadow: 0 20px 40px rgba(225, 29, 46, .24);
+}
+.v80-primary span { margin-left: 10px; }
+.v80-secondary {
+  color: var(--v80-ink);
+  background: white;
+  border: 1px solid var(--v80-line);
+  box-shadow: 0 12px 30px rgba(15,23,42,.06);
+}
+.v80-trust-pills {
+  margin-top: 24px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.v80-trust-pills span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border: 1px solid var(--v80-line);
+  border-radius: 999px;
+  background: rgba(255,255,255,.8);
+  color: #435067;
+  font-size: .86rem;
+  font-weight: 800;
+  box-shadow: 0 10px 28px rgba(15,23,42,.04);
+}
+
+.v80-cinema-card {
+  position: relative;
+  min-width: 0;
+  width: 100%;
+  max-width: 720px;
+  justify-self: end;
+  overflow: hidden;
+  border: 1px solid rgba(210, 221, 238, .88);
+  border-radius: 30px;
+  background:
+    linear-gradient(135deg, rgba(12,18,32,.98), rgba(16,24,43,.94) 42%, rgba(255,255,255,.96) 42.2%, rgba(255,255,255,.98) 100%);
+  box-shadow: var(--v80-shadow);
+  isolation: isolate;
+}
+.v80-card-glow {
+  position: absolute;
+  inset: auto -10% -30% 18%;
+  height: 240px;
+  background: radial-gradient(circle, rgba(225,29,46,.24), transparent 54%), radial-gradient(circle at 70% 55%, rgba(37,99,235,.22), transparent 48%);
+  filter: blur(18px);
+  opacity: .9;
+  z-index: -1;
+}
+.v80-cinema-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,.05) 0 1px, transparent 1px 52px),
+    linear-gradient(180deg, rgba(255,255,255,.04) 0 1px, transparent 1px 52px);
+  opacity: .12;
+  pointer-events: none;
+}
+
+.v80-card-top {
+  min-height: 64px;
+  padding: 0 18px;
+  border-bottom: 1px solid rgba(226,232,240,.78);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  background: rgba(255,255,255,.88);
+  backdrop-filter: blur(18px);
+}
+.v80-window-dots { display: flex; gap: 8px; }
+.v80-window-dots span { width: 11px; height: 11px; border-radius: 99px; display: block; }
+.v80-window-dots span:nth-child(1) { background: #ef4444; }
+.v80-window-dots span:nth-child(2) { background: #f59e0b; }
+.v80-window-dots span:nth-child(3) { background: #22c55e; }
+.v80-card-top strong { color: var(--v80-ink); font-weight: 950; letter-spacing: -.035em; }
+.v80-card-badges { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+.v80-card-badges span {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #eef4ff;
+  color: var(--v80-blue);
+  font-size: .72rem;
+  font-weight: 900;
+}
+.v80-card-badges .hot { background: #fff1f2; color: var(--v80-red); }
+
+.v80-card-body {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: minmax(160px,.42fr) minmax(0,1fr);
+  gap: 18px;
+}
+.v80-script-panel, .v80-storyboard-panel {
+  min-width: 0;
+  border: 1px solid rgba(226,232,240,.88);
+  background: rgba(255,255,255,.92);
+  border-radius: 22px;
+  box-shadow: 0 12px 36px rgba(15,23,42,.08);
+}
+.v80-script-panel { padding: 18px; }
+.v80-script-panel small, .v80-frame-copy small {
+  color: var(--v80-blue);
+  font-size: .7rem;
+  letter-spacing: .06em;
+  font-weight: 950;
+}
+.v80-script-panel h3 {
+  margin: 14px 0 10px;
+  color: var(--v80-ink);
+  font-size: .98rem;
+  line-height: 1.2;
+  letter-spacing: -.02em;
+}
+.v80-script-panel p {
+  color: #435067;
+  font-size: .88rem;
+  line-height: 1.55;
+  margin: 0 0 14px;
+}
+.v80-context-meter {
+  height: 9px;
+  border-radius: 999px;
+  background: #e6edf8;
+  overflow: hidden;
+  margin-top: 18px;
+}
+.v80-context-meter span {
+  display: block;
+  height: 100%;
+  width: 28%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--v80-red), var(--v80-green), var(--v80-blue));
+}
+.v80-meter-label { margin-top: 8px !important; font-size: .76rem !important; color: var(--v80-muted) !important; }
+
+.v80-storyboard-panel { padding: 14px; }
+.v80-large-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #0b1220;
+  border: 1px solid rgba(15,23,42,.16);
+}
+.v80-large-frame img {
+  width: 100%;
+  height: clamp(210px, 25vw, 320px);
+  object-fit: cover;
+  filter: contrast(1.03) saturate(.78);
+  display: block;
+}
+.v80-large-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.24), inset 0 -80px 95px rgba(6,10,20,.42);
+  pointer-events: none;
+}
+.v80-frame-meta {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.v80-frame-meta span, .v80-frame-meta b {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0 11px;
+  border-radius: 999px;
+  color: white;
+  background: rgba(15,23,42,.74);
+  backdrop-filter: blur(12px);
+  font-size: .72rem;
+  font-weight: 900;
+}
+.v80-frame-meta b { background: rgba(22,163,74,.88); }
+.v80-frame-copy {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) auto;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 4px 0;
+}
+.v80-frame-copy p {
+  margin: 4px 0 0;
+  color: #435067;
+  font-size: .88rem;
+  line-height: 1.4;
+}
+.v80-ai-button {
+  min-height: 42px;
+  color: #5b21b6;
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+  padding: 0 14px;
+  font-size: .82rem;
+}
+
+.v80-film-strip {
+  padding: 0 20px 20px;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+}
+.v80-film-strip div {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(226,232,240,.92);
+  border-radius: 14px;
+  background: white;
+  min-height: 76px;
+}
+.v80-film-strip div.active { border-color: rgba(225,29,46,.7); box-shadow: 0 0 0 3px rgba(225,29,46,.08); }
+.v80-film-strip img { width: 100%; height: 76px; object-fit: cover; display: block; filter: grayscale(.15); }
+.v80-film-strip span {
+  position: absolute;
+  left: 7px;
+  top: 7px;
+  display: inline-flex;
+  height: 22px;
+  min-width: 28px;
+  padding: 0 6px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  color: white;
+  background: rgba(15,23,42,.75);
+  font-size: .68rem;
+  font-weight: 900;
+}
+.v80-film-strip div.active span { background: var(--v80-red); }
+
+@media (max-width: 1220px) {
+  .v80-hero { grid-template-columns: 1fr; padding-top: 46px; }
+  .v80-hero-copy { max-width: 760px; }
+  .v80-hero h1 { max-width: 760px; font-size: clamp(3rem, 8vw, 5.1rem); }
+  .v80-cinema-card { justify-self: start; max-width: 860px; }
+}
+@media (max-width: 760px) {
+  .v80-hero { width: min(100% - 28px, var(--v80-max)); padding-top: 34px; gap: 28px; }
+  .v80-eyebrow { display: flex; flex-wrap: wrap; border-radius: 18px; }
+  .v80-hero h1 { font-size: clamp(2.45rem, 13vw, 3.35rem); line-height: 1.03; }
+  .v80-lede { font-size: 1rem; line-height: 1.55; }
+  .v80-primary, .v80-secondary { width: 100%; }
+  .v80-card-body { grid-template-columns: 1fr; padding: 14px; }
+  .v80-card-top { align-items: flex-start; flex-direction: column; padding: 14px; }
+  .v80-frame-copy { grid-template-columns: 1fr; }
+  .v80-film-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 0 14px 14px; }
+  .v80-film-strip img { height: 58px; }
+  .v80-large-frame img { height: 230px; }
+}

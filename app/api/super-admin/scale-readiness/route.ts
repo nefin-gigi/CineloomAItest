@@ -1,0 +1,9 @@
+import { NextResponse } from 'next/server';
+import { assertSuperAdminAccess } from '@/lib/integration-runtime';
+import { getScaleReadiness } from '@/lib/production-scale';
+
+export async function GET(request: Request) {
+  const access = assertSuperAdminAccess(request);
+  if (!access.allowed) return NextResponse.json({ ok: false, message: access.reason }, { status: 403 });
+  return NextResponse.json({ ok: true, generatedAt: new Date().toISOString(), ...getScaleReadiness() });
+}

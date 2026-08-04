@@ -1,0 +1,343 @@
+/* CineLoom v5.3 — Audience 10/10 look and feel layer
+   Goal: make the site feel premium, simple, film-aware, mobile-polished, and comparable to top SaaS landing experiences. */
+
+:root {
+  --a10-ink: #07111f;
+  --a10-blue: #2563eb;
+  --a10-green: #16a34a;
+  --a10-red: #dc2626;
+  --a10-slate: #475569;
+  --a10-line: #d7e3f2;
+  --a10-blue-soft: #eef6ff;
+  --a10-green-soft: #ecfdf5;
+  --a10-red-soft: #fff1f2;
+  --a10-shadow: 0 26px 80px rgba(15, 23, 42, .12);
+  --a10-shadow-soft: 0 14px 44px rgba(15, 23, 42, .075);
+}
+
+body {
+  background:
+    radial-gradient(circle at 8% 2%, rgba(37, 99, 235, .16), transparent 24rem),
+    radial-gradient(circle at 96% 4%, rgba(22, 163, 74, .14), transparent 25rem),
+    radial-gradient(circle at 50% 22%, rgba(220, 38, 38, .07), transparent 28rem),
+    linear-gradient(180deg, #ffffff 0%, #f6f9fd 42%, #ffffff 100%) !important;
+}
+
+.public-conversion-nav.premium-public-nav {
+  box-shadow: 0 16px 50px rgba(15, 23, 42, .07), inset 0 1px 0 rgba(255,255,255,.8) !important;
+}
+
+.public-conversion-nav .nav-links a,
+.public-conversion-nav .nav-actions a,
+.mobile-menu-button { transition: transform .16s ease, box-shadow .16s ease, background .16s ease, color .16s ease; }
+.public-conversion-nav .nav-links a:hover,
+.mobile-menu-button:hover { transform: translateY(-1px); }
+
+.saas-cinema-hero {
+  position: relative;
+  isolation: isolate;
+  padding-top: clamp(58px, 8vw, 108px) !important;
+}
+.saas-cinema-hero::before {
+  content: '';
+  position: absolute;
+  inset: 28px 20px auto 20px;
+  height: 74%;
+  border-radius: 42px;
+  background:
+    linear-gradient(90deg, rgba(37,99,235,.08), transparent 24%, rgba(22,163,74,.08) 68%, transparent),
+    repeating-linear-gradient(90deg, rgba(15,23,42,.055) 0 1px, transparent 1px 68px);
+  mask-image: linear-gradient(180deg, rgba(0,0,0,.65), transparent 100%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.hero-pill-row .pill {
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.8), 0 6px 20px rgba(15,23,42,.055);
+}
+.saas-cinema-hero h1 {
+  text-wrap: balance;
+  background: linear-gradient(92deg, #07111f 0%, #0f2c5f 62%, #123f2a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+.hero-lede { text-wrap: pretty; }
+
+.product-browser-card,
+.mobile-storyboard-app-preview,
+.hero-product-stack .compact-sample-card {
+  position: relative;
+}
+.product-browser-card::after,
+.mobile-storyboard-app-preview::after,
+.hero-product-stack .compact-sample-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.85), inset 0 -1px 0 rgba(15,23,42,.04);
+}
+.product-browser-card {
+  transform: translateZ(0);
+}
+.product-browser-card:hover,
+.hero-product-stack .compact-sample-card:hover {
+  box-shadow: 0 34px 90px rgba(15,23,42,.15) !important;
+}
+
+.cinema-panel-thumb,
+.mini-cinema-frame,
+.proof-output-visual,
+.mobile-panel-visual {
+  position: relative;
+  overflow: hidden;
+}
+.cinema-panel-thumb::after,
+.mini-cinema-frame::after,
+.proof-output-visual::after,
+.mobile-panel-visual::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 38%;
+  background: linear-gradient(180deg, transparent, rgba(7,17,31,.07));
+  pointer-events: none;
+}
+
+.audience-10-section {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: clamp(44px, 8vw, 94px) 20px;
+}
+.audience-10-header {
+  max-width: 880px;
+  margin: 0 auto 24px;
+  text-align: center;
+}
+.audience-10-header h2 {
+  color: var(--a10-ink) !important;
+  letter-spacing: -.055em !important;
+  line-height: 1.02 !important;
+  text-wrap: balance;
+}
+.audience-10-header p {
+  margin: 0 auto;
+  max-width: 760px;
+  color: var(--a10-slate) !important;
+  font-size: 1.08rem;
+  line-height: 1.72;
+}
+.audience-10-score-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 auto 22px;
+  padding: 12px;
+  border: 1px solid var(--a10-line);
+  border-radius: 999px;
+  background: rgba(255,255,255,.86);
+  box-shadow: var(--a10-shadow-soft);
+  width: fit-content;
+  max-width: 100%;
+}
+.audience-10-score-strip strong {
+  color: var(--a10-ink);
+  font-weight: 950;
+  padding: 7px 10px;
+}
+.audience-10-score-strip span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: var(--a10-blue-soft);
+  color: #1d4ed8;
+  font-size: .82rem;
+  font-weight: 900;
+}
+.audience-10-score-strip span:nth-child(3) { background: var(--a10-green-soft); color: #047857; }
+.audience-10-score-strip span:nth-child(4) { background: var(--a10-red-soft); color: #b91c1c; }
+
+.cinema-moment-rail {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+  margin: 28px 0 18px;
+}
+.cinema-moment {
+  border: 1px solid var(--a10-line);
+  border-radius: 20px;
+  background: rgba(255,255,255,.86);
+  box-shadow: var(--a10-shadow-soft);
+  padding: 16px;
+  min-height: 150px;
+}
+.cinema-moment b {
+  display: inline-flex;
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: linear-gradient(135deg, var(--a10-red), var(--a10-green), var(--a10-blue));
+  font-size: .78rem;
+  margin-bottom: 12px;
+}
+.cinema-moment h3 { margin: 0 0 6px; color: var(--a10-ink); }
+.cinema-moment p { margin: 0; color: var(--a10-slate); font-size: .88rem; line-height: 1.5; }
+
+.audience-10-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+}
+.audience-10-card {
+  position: relative;
+  display: grid;
+  gap: 12px;
+  min-height: 324px;
+  text-decoration: none;
+  color: inherit;
+  padding: 24px;
+  border: 1px solid var(--a10-line);
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,.84));
+  box-shadow: var(--a10-shadow-soft);
+  overflow: hidden;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.audience-10-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 8px;
+  background: var(--a10-blue);
+}
+.audience-10-card.green::before { background: var(--a10-green); }
+.audience-10-card.red::before { background: var(--a10-red); }
+.audience-10-card::after {
+  content: '';
+  position: absolute;
+  right: -44px;
+  top: -44px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: rgba(37,99,235,.08);
+  pointer-events: none;
+}
+.audience-10-card.green::after { background: rgba(22,163,74,.09); }
+.audience-10-card.red::after { background: rgba(220,38,38,.08); }
+.audience-10-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--a10-shadow);
+  border-color: #bfdbfe;
+}
+.audience-score-badge {
+  width: fit-content;
+  border-radius: 999px;
+  padding: 7px 10px;
+  color: #1d4ed8;
+  background: var(--a10-blue-soft);
+  font-weight: 950;
+  font-size: .82rem;
+}
+.audience-10-card.green .audience-score-badge { color: #047857; background: var(--a10-green-soft); }
+.audience-10-card.red .audience-score-badge { color: #b91c1c; background: var(--a10-red-soft); }
+.audience-10-card h3 {
+  margin: 0;
+  color: var(--a10-ink);
+  letter-spacing: -.03em;
+  font-size: 1.35rem;
+}
+.audience-10-card > strong { color: var(--a10-ink); font-size: 1.02rem; line-height: 1.35; }
+.audience-10-card p { margin: 0; color: var(--a10-slate); line-height: 1.62; }
+.audience-proof-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: auto; }
+.audience-proof-tags span {
+  border: 1px solid var(--a10-line);
+  background: #fff;
+  color: #334155;
+  border-radius: 999px;
+  padding: 6px 8px;
+  font-size: .76rem;
+  font-weight: 850;
+}
+.audience-link-label { color: var(--a10-blue); font-size: .92rem; }
+.audience-10-card.green .audience-link-label { color: #047857; }
+.audience-10-card.red .audience-link-label { color: #b91c1c; }
+
+.proof-studio .section-center h2,
+.audience-routes .section-center h2,
+.pricing-home-section h2,
+.trust-operating-layer h2,
+.saas-final-cta h2 {
+  text-wrap: balance;
+}
+.proof-output-card,
+.audience-route-card,
+.trust-stack-card,
+.workflow-ladder-card,
+.pricing-card {
+  backdrop-filter: blur(12px);
+}
+
+@media (max-width: 1120px) {
+  .cinema-moment-rail { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .audience-10-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 860px) {
+  .audience-10-section { padding: 42px 16px; }
+  .audience-10-header { text-align: left; margin-bottom: 18px; }
+  .audience-10-header h2 { font-size: clamp(2.1rem, 10vw, 3.1rem) !important; }
+  .audience-10-header p { font-size: 1rem; }
+  .audience-10-score-strip {
+    border-radius: 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    justify-content: stretch;
+  }
+  .audience-10-score-strip strong { grid-column: 1 / -1; }
+  .audience-10-score-strip span { justify-content: center; text-align: center; }
+  .cinema-moment-rail {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(190px, 72%);
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .cinema-moment-rail::-webkit-scrollbar { display: none; }
+  .cinema-moment { scroll-snap-align: start; }
+  .audience-10-grid { grid-template-columns: 1fr; gap: 12px; }
+  .audience-10-card {
+    min-height: auto;
+    border-radius: 24px;
+    padding: 22px;
+  }
+}
+
+@media (max-width: 560px) {
+  .saas-cinema-hero::before { inset: 12px 8px auto 8px; border-radius: 28px; }
+  .saas-cinema-hero h1 { font-size: clamp(2.55rem, 12.5vw, 3.9rem) !important; }
+  .mobile-storyboard-app-preview { border-radius: 30px !important; }
+  .audience-10-score-strip { grid-template-columns: 1fr; }
+  .audience-10-card h3 { font-size: 1.18rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-browser-card:hover,
+  .audience-10-card:hover,
+  .btn.primary:hover,
+  .simple-pricing-grid .pricing-card:hover { transform: none !important; }
+  .timeline-strip span { animation: none !important; }
+}
