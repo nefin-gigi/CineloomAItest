@@ -3,6 +3,14 @@
 import { useMemo, useState } from 'react';
 
 const starter = 'A filmmaker opens a glowing studio door and steps into a living movie world.';
+const visualStyles = [
+  'sketch',
+  'cinematic realism',
+  'natural',
+  'dynamic/comic book storyboard',
+  'doodle storyboard',
+  'anime style storyboard'
+];
 const panels = [
   ['01', 'Wide shot', 'Establish the location and mood.'],
   ['02', 'Tracking shot', 'Move with the character toward the door.'],
@@ -14,7 +22,7 @@ const panels = [
 
 export function WorkingStoryboardDemo() {
   const [scene, setScene] = useState(starter);
-  const [style, setStyle] = useState('Cinematic sketch');
+  const [style, setStyle] = useState(visualStyles[0]);
   const [done, setDone] = useState(false);
   const tokens = useMemo(() => Math.max(120, Math.min(240, scene.trim().length + 88)), [scene]);
 
@@ -31,10 +39,9 @@ export function WorkingStoryboardDemo() {
         <label className="bd-field">
           <span>Visual style</span>
           <select value={style} onChange={(event) => setStyle(event.target.value)}>
-            <option>Cinematic sketch</option>
-            <option>Realistic storyboard</option>
-            <option>3D blocking</option>
-            <option>Animated family style</option>
+            {visualStyles.map((visualStyle) => (
+              <option key={visualStyle} value={visualStyle}>{visualStyle}</option>
+            ))}
           </select>
         </label>
         <div className="bd-demo-row">
