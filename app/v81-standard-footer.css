@@ -416,6 +416,26 @@
   background: #fff;
 }
 
+.bd-shot-radio {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.bd-shot-slide { display: none; }
+#storyboard-shot-1:checked ~ .bd-shot-slide-1,
+#storyboard-shot-2:checked ~ .bd-shot-slide-2,
+#storyboard-shot-3:checked ~ .bd-shot-slide-3,
+#storyboard-shot-4:checked ~ .bd-shot-slide-4,
+#storyboard-shot-5:checked ~ .bd-shot-slide-5,
+#storyboard-shot-6:checked ~ .bd-shot-slide-6,
+#storyboard-shot-7:checked ~ .bd-shot-slide-7,
+#storyboard-shot-8:checked ~ .bd-shot-slide-8 { display: block; }
+
 .bd-shot-carousel-head {
   display: flex;
   align-items: center;
@@ -449,6 +469,15 @@
   transition: background-position .2s ease;
 }
 
+.bd-shot-frame-1 { background-position: 0% 0%; }
+.bd-shot-frame-2 { background-position: 33.333% 0%; }
+.bd-shot-frame-3 { background-position: 66.667% 0%; }
+.bd-shot-frame-4 { background-position: 100% 0%; }
+.bd-shot-frame-5 { background-position: 0% 100%; }
+.bd-shot-frame-6 { background-position: 33.333% 100%; }
+.bd-shot-frame-7 { background-position: 66.667% 100%; }
+.bd-shot-frame-8 { background-position: 100% 100%; }
+
 .bd-shot-controls {
   display: grid;
   grid-template-columns: 42px 1fr 42px;
@@ -457,9 +486,11 @@
   margin-top: 14px;
 }
 
-.bd-shot-controls > button {
+.bd-shot-controls > label {
   width: 42px;
   height: 42px;
+  display: grid;
+  place-items: center;
   border: 1px solid #cbd5e1;
   border-radius: 12px;
   background: #fff;
@@ -468,8 +499,8 @@
   cursor: pointer;
 }
 
-.bd-shot-controls > button:hover,
-.bd-shot-controls > button:focus-visible {
+.bd-shot-controls > label:hover,
+.bd-shot-controls > label:focus-visible {
   border-color: #2563eb;
   color: #2563eb;
   outline: none;
@@ -482,9 +513,10 @@
   flex-wrap: wrap;
 }
 
-.bd-shot-dots button {
+.bd-shot-dots label {
   width: 9px;
   height: 9px;
+  display: block;
   padding: 0;
   border: 0;
   border-radius: 999px;
@@ -492,7 +524,7 @@
   cursor: pointer;
 }
 
-.bd-shot-dots button.active {
+.bd-shot-dots label.active {
   width: 24px;
   background: #2563eb;
 }
