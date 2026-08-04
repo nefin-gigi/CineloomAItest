@@ -294,3 +294,211 @@
   }
   .standard-footer-brand img { width: 38px !important; height: 38px !important; }
 }
+/* Storyboard preview and shot carousel */
+.bd-field select option:disabled {
+  color: #94a3b8;
+  background: #f1f5f9;
+}
+
+.bd-style-picker {
+  position: relative;
+}
+
+.bd-style-picker-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 14px;
+  background: #fff;
+  color: #0f172a;
+  text-align: left;
+  cursor: pointer;
+}
+
+.bd-style-picker-trigger:focus-visible {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, .12);
+  outline: none;
+}
+
+.bd-style-picker-menu {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 6px);
+  right: 0;
+  left: 0;
+  overflow: visible;
+  padding: 6px;
+  border: 1px solid #cbd5e1;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, .16);
+}
+
+.bd-style-picker-option {
+  position: relative;
+  width: 100%;
+  display: block;
+  padding: 11px 12px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: #1e293b;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.bd-style-picker-option:not(.disabled):hover,
+.bd-style-picker-option:not(.disabled):focus-visible,
+.bd-style-picker-option[aria-selected='true'] {
+  background: #eff6ff;
+  color: #1d4ed8;
+  outline: none;
+}
+
+.bd-style-picker-option.disabled {
+  color: #94a3b8;
+  background: #f8fafc;
+  cursor: not-allowed;
+}
+
+.bd-style-picker-option.disabled::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  z-index: 30;
+  right: 8px;
+  bottom: calc(100% + 7px);
+  width: max-content;
+  max-width: 220px;
+  padding: 7px 9px;
+  border-radius: 8px;
+  background: #0f172a;
+  color: #fff;
+  font-size: .75rem;
+  font-weight: 700;
+  line-height: 1.25;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(4px);
+  transition: opacity .15s ease, transform .15s ease;
+}
+
+.bd-style-picker-option.disabled:hover::after,
+.bd-style-picker-option.disabled:focus-visible::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.bd-storyboard-sheet {
+  overflow: hidden;
+  border: 1px solid #d8e1ec;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, .08);
+}
+
+.bd-storyboard-sheet img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.bd-shot-carousel {
+  margin-top: 18px;
+  padding: 16px;
+  border: 1px solid #dfe7f1;
+  border-radius: 18px;
+  background: #fff;
+}
+
+.bd-shot-carousel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.bd-shot-carousel-head strong {
+  color: #0f172a;
+  font-size: .94rem;
+}
+
+.bd-shot-carousel-head span {
+  color: #64748b;
+  font-size: .8rem;
+  font-weight: 750;
+}
+
+.bd-shot-frame {
+  width: min(100%, 330px);
+  aspect-ratio: 3 / 4;
+  margin: 0 auto;
+  border: 1px solid #cbd5e1;
+  border-radius: 14px;
+  background-image: url('/storyboard-playground-shots.png');
+  background-repeat: no-repeat;
+  background-size: 400% 200%;
+  background-color: #f8fafc;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, .1);
+  transition: background-position .2s ease;
+}
+
+.bd-shot-controls {
+  display: grid;
+  grid-template-columns: 42px 1fr 42px;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.bd-shot-controls > button {
+  width: 42px;
+  height: 42px;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  background: #fff;
+  color: #0f172a;
+  font-size: 1.15rem;
+  cursor: pointer;
+}
+
+.bd-shot-controls > button:hover,
+.bd-shot-controls > button:focus-visible {
+  border-color: #2563eb;
+  color: #2563eb;
+  outline: none;
+}
+
+.bd-shot-dots {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.bd-shot-dots button {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: #cbd5e1;
+  cursor: pointer;
+}
+
+.bd-shot-dots button.active {
+  width: 24px;
+  background: #2563eb;
+}
+
+@media (max-width: 560px) {
+  .bd-shot-carousel-head { align-items: flex-start; }
+  .bd-shot-carousel { padding: 12px; }
+  .bd-shot-frame { width: min(100%, 280px); }
+}
