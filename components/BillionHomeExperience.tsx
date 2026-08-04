@@ -70,37 +70,66 @@ export function BillionHomeExperience() {
         </nav>
       </header>
 
-      <section className="v82-hero" aria-labelledby="v77-hero-title">
-        <div className="v82-hero-copy">
-          <div className="v82-eyebrow"><span>AI-powered storyboarding</span></div>
-          <h1 id="v77-hero-title">Turn your script into <span>cinematic storyboards.</span></h1>
-          <p className="v82-lede">Create storyboards, shot lists, and AI Harness revisions with director control. Iterate fast. Pitch with confidence. Go from script to pitch-ready assets in minutes.</p>
+      <section className="v80-hero" aria-labelledby="v77-hero-title">
+        <div className="v80-hero-copy">
+          <div className="v80-eyebrow"><span>AI-powered pre-production</span><span>Director controlled</span></div>
+          <h1 id="v77-hero-title">Turn scripts into <span>cinematic storyboards.</span></h1>
+          <p className="v80-lede">CineLoom.ai helps creators, filmmakers, producers, and studios move from script to visual pitch package with clean storyboard panels, shot lists, AI Harness edits, and export-ready assets.</p>
 
-          <div className="v82-benefits" aria-label="CineLoom benefits">
-            <article><b>⚡</b><span><strong>Ultra-fast AI storyboarding</strong><small>Create thousands of boards with a simple workflow.</small></span></article>
-            <article><b>🎬</b><span><strong>Director control with AI Harness</strong><small>Change one board at a time before final stitching.</small></span></article>
-            <article><b>🔒</b><span><strong>Security and privacy first</strong><small>Enterprise-grade controls for private script workflows.</small></span></article>
+          <div className="v80-actions">
+            <EndpointAwareLink actionKey="cta_create_free_storyboard" href="/create-free-storyboard" className="v80-primary">Create free storyboard <span>→</span></EndpointAwareLink>
+            <EndpointAwareLink actionKey="nav_examples" href="/examples" className="v80-secondary">View examples</EndpointAwareLink>
           </div>
 
-          <div className="v82-actions">
-            <EndpointAwareLink actionKey="cta_create_free_storyboard" href="/create-free-storyboard" className="cl-btn cl-btn-primary">Create free storyboard <span>→</span></EndpointAwareLink>
-            <EndpointAwareLink actionKey="nav_how_it_works" href="#workflow" className="cl-btn cl-btn-secondary">See how it works</EndpointAwareLink>
-          </div>
-
-          <div className="v82-trust-row" aria-label="Preview guarantees">
-            <span>✓ No credit card required</span>
-            <span>✓ Free credits</span>
+          <div className="v80-trust-pills" aria-label="Preview guarantees">
+            <span>✓ No credit card</span>
+            <span>✓ Low-token AI Harness</span>
             <span>✓ Private script controls</span>
           </div>
         </div>
 
-        <figure className="v82-banner-card" aria-label="CineLoom cinematic SaaS storyboard hero banner">
-          <img src="/hero/cineloom-cinematic-saas-hero.png" alt="CineLoom cinematic storyboard dashboard showing Board 417 with AI Harness controls" />
-          <figcaption>
-            <strong>Storyboard Studio</strong>
-            <span>Board 417 · AI Harness · Low-token context</span>
-          </figcaption>
-        </figure>
+        <div className="v80-cinema-card" aria-label="CineLoom cinematic storyboard preview">
+          <div className="v80-card-glow" aria-hidden="true" />
+          <div className="v80-card-top">
+            <div className="v80-window-dots" aria-hidden="true"><span /><span /><span /></div>
+            <strong>CineLoom Storyboard Studio</strong>
+            <div className="v80-card-badges">
+              <span>Scene 12</span>
+              <span className="hot">Board 417</span>
+            </div>
+          </div>
+
+          <div className="v80-card-body">
+            <aside className="v80-script-panel">
+              <small>SCRIPT INPUT</small>
+              <h3>EXT. PLAYGROUND — DAY</h3>
+              <p>A little boy notices the ball rolling toward him. The moment slows as his eyes widen.</p>
+              <div className="v80-context-meter"><span /></div>
+              <p className="v80-meter-label">Only selected board + nearby context sent to AI</p>
+            </aside>
+
+            <section className="v80-storyboard-panel">
+              <div className="v80-large-frame">
+                <img src="/storyboards/close-up.png" alt="Cinematic storyboard close-up board" />
+                <div className="v80-frame-meta"><span>04 Close-up</span><b>Approved ✓</b></div>
+              </div>
+              <div className="v80-frame-copy">
+                <small>AI HARNESS PATCH</small>
+                <p>Change only Board 417 before stitching. Other boards stay locked.</p>
+                <EndpointAwareLink actionKey="studio_agent_harness" href="/studio/agent-harness" className="v80-ai-button">Open AI Harness</EndpointAwareLink>
+              </div>
+            </section>
+          </div>
+
+          <div className="v80-film-strip" aria-label="Storyboard panels">
+            {['wide-shot.png','tracking-shot.png','insert.png','close-up.png','reveal.png','export.png'].map((img, index) => (
+              <div key={img} className={index === 3 ? 'active' : ''}>
+                <img src={`/storyboards/${img}`} alt="" />
+                <span>{String(index + 1).padStart(2, '0')}</span>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       <section className="v77-trust-strip" aria-label="Audience trust strip">

@@ -19,7 +19,6 @@ import './v78-sitewide-alignment.css';
 import './v79-responsive-layout-lock.css';
 import './v80-cinematic-hero.css';
 import './v81-standard-footer.css';
-import './v82-hero-banner-buttons.css';
 
 const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? 'https://www.cineloom.ai';
 

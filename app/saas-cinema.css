@@ -284,14 +284,14 @@ body {
   display: grid;
   grid-template-columns: .86fr 1.14fr;
   gap: clamp(24px, 5vw, 56px);
-  align-items: flex-start;
+  align-items: start;
 }
 .workflow-ladder { display: grid; gap: 14px; }
 .workflow-ladder-card {
   display: grid;
   grid-template-columns: 54px 1fr;
   gap: 14px;
-  align-items: flex-start;
+  align-items: start;
   padding: 18px;
   border: 1px solid var(--cl-line);
   border-radius: 22px;
@@ -372,7 +372,7 @@ body {
   display: grid;
   grid-template-columns: .82fr 1.18fr;
   gap: clamp(24px, 5vw, 56px);
-  align-items: flex-start;
+  align-items: start;
 }
 .trust-stack { display: grid; gap: 14px; }
 .trust-stack-card { border-left: 6px solid var(--cl-green); }
@@ -431,7 +431,7 @@ body {
   .mini-board-grid { grid-template-columns: 1fr; }
   .compact-preview-strip { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
   .saas-final-cta { display: grid; margin-left: 16px; margin-right: 16px; }
-  .final-cta-actions { justify-content: flex-start; }
+  .final-cta-actions { justify-content: start; }
 }
 
 @media (max-width: 560px) {

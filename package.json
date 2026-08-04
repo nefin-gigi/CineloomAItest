@@ -1,8 +1,8 @@
 {
-  "name": "cineloom-ai-v8-2-cinematic-hero-banner-buttons",
-  "version": "8.2.0",
+  "name": "cineloom-ai-v8-1-standardized-site-footer",
+  "version": "8.1.0",
   "private": true,
-  "description": "CineLoom.ai v8.2 cinematic hero banner and sitewide button consistency release, preserving AI Harness, Super Admin endpoint router, security and footer architecture.",
+  "description": "CineLoom.ai v8.1 standardized site footer: one reusable, responsive footer template across public, legal, marketing and studio entry pages, while preserving the cinematic hero, AI Harness, Super Admin endpoint router, security and backend architecture.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -45,8 +45,7 @@
     "sitewide-alignment-check": "node scripts/sitewide-alignment-check.mjs",
     "responsive-layout-lock-check": "node scripts/responsive-layout-lock-check.mjs",
     "cinematic-hero-check": "node scripts/cinematic-hero-check.mjs",
-    "standard-footer-check": "node scripts/standard-footer-check.mjs",
-    "hero-banner-buttons-check": "node scripts/hero-banner-buttons-check.mjs"
+    "standard-footer-check": "node scripts/standard-footer-check.mjs"
   },
   "dependencies": {
     "next": "^15.5.0",

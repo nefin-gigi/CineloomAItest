@@ -20,7 +20,7 @@ const css = readFileSync('app/v80-cinematic-hero.css', 'utf8');
 const checks = [
   ['layout imports v80 css last', layout.includes("./v80-cinematic-hero.css")],
   ['home uses v80-page', home.includes('v80-page')],
-  ['home uses cinematic hero visual', home.includes('v80-cinema-card') || home.includes('v82-banner-card')],
+  ['home uses cinematic card', home.includes('v80-cinema-card')],
   ['hero keeps AI Harness CTA', home.includes('studio_agent_harness') && home.includes('/studio/agent-harness')],
   ['hero keeps create CTA', home.includes('cta_create_free_storyboard')],
   ['css includes responsive breakpoint', css.includes('@media (max-width: 1220px)')],
@@ -34,4 +34,4 @@ if (failed.length) {
   process.exit(1);
 }
 
-console.log('CineLoom cinematic hero checks passed.');
+console.log('CineLoom v8.0 cinematic hero checks passed.');

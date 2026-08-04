@@ -30,7 +30,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(340px, .75fr);
   gap: 18px;
-  align-items: flex-start;
+  align-items: start;
 }
 .agent-admin-stack { display: grid; gap: 18px; }
 .agent-card {

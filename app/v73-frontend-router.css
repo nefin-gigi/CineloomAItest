@@ -67,7 +67,7 @@
   display: grid;
   grid-template-columns: minmax(0,1fr) minmax(360px,460px);
   gap: 24px;
-  align-items: flex-start;
+  align-items: start;
 }
 .fer-layout.two-equal { grid-template-columns: repeat(2,minmax(0,1fr)); }
 .fer-panel { padding: 22px; }
