@@ -4,12 +4,12 @@ import { useMemo, useState } from 'react';
 
 const starter = 'A filmmaker opens a glowing studio door and steps into a living movie world.';
 const visualStyles = [
-  'sketch',
-  'cinematic realism',
-  'natural',
-  'dynamic/comic book storyboard',
-  'doodle storyboard',
-  'anime style storyboard'
+  'Sketch',
+  'Cinematic Realism',
+  'Natural',
+  'Dynamic / Comic Book Storyboard',
+  'Doodle Storyboard',
+  'Anime Style Storyboard'
 ];
 const panels = [
   ['01', 'Wide shot', 'Establish the location and mood.'],
