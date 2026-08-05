@@ -28,21 +28,54 @@ export function WorkingStoryboardDemo() {
           <span>Scene or story idea</span>
           <textarea value={scene} onChange={(event) => setScene(event.target.value)} />
         </label>
-        <label className="bd-field">
+        <div className="bd-field">
           <span>Visual style</span>
-          <select defaultValue="Sketch">
-            {visualStyles.map((visualStyle) => (
-              <option
+          <div className="bd-style-control">
+            {visualStyles.filter((visualStyle) => !visualStyle.disabled).map((visualStyle, index) => (
+              <input
                 key={visualStyle.label}
-                value={visualStyle.label}
-                disabled={visualStyle.disabled}
-                title={visualStyle.disabled ? 'Upgrade your plan to use.' : undefined}
-              >
-                {visualStyle.label}
-              </option>
+                className="bd-style-radio"
+                type="radio"
+                name="visual-style"
+                id={`visual-style-${index + 1}`}
+                defaultChecked={index === 0}
+              />
             ))}
-          </select>
-        </label>
+            <details className="bd-style-picker">
+              <summary className="bd-style-picker-trigger">
+                <span className="bd-style-current">
+                  <span className="bd-style-current-1">Sketch</span>
+                  <span className="bd-style-current-2">Cinematic Realism</span>
+                  <span className="bd-style-current-3">Natural</span>
+                </span>
+                <span aria-hidden="true">⌄</span>
+              </summary>
+              <div className="bd-style-picker-menu" role="listbox" aria-label="Visual style">
+                {visualStyles.map((visualStyle, index) => visualStyle.disabled ? (
+                  <div
+                    key={visualStyle.label}
+                    className="bd-style-picker-option disabled"
+                    role="option"
+                    aria-disabled="true"
+                    tabIndex={0}
+                    data-tooltip="Upgrade your plan to use"
+                  >
+                    {visualStyle.label}
+                  </div>
+                ) : (
+                  <label
+                    key={visualStyle.label}
+                    className="bd-style-picker-option"
+                    role="option"
+                    htmlFor={`visual-style-${index + 1}`}
+                  >
+                    {visualStyle.label}
+                  </label>
+                ))}
+              </div>
+            </details>
+          </div>
+        </div>
         <div className="bd-demo-row">
           <span>{tokens} preview tokens</span>
           <span>8 panels</span>
