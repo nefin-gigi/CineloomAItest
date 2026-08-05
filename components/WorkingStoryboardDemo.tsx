@@ -1,21 +1,21 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { StoryboardSSOModal } from '@/components/StoryboardSSOModal';
 
 const starter = 'A filmmaker opens a glowing studio door and steps into a living movie world.';
-const panels = [
-  ['01', 'Wide shot', 'Establish the location and mood.'],
-  ['02', 'Tracking shot', 'Move with the character toward the door.'],
-  ['03', 'Insert', 'Focus on the glowing handle.'],
-  ['04', 'Close-up', 'Show the character’s wonder.'],
-  ['05', 'Reveal', 'Show the world beyond the door.'],
-  ['06', 'Export', 'Package the storyboard for review.']
+const visualStyles = [
+  { label: 'Sketch', disabled: false },
+  { label: 'Cinematic Realism', disabled: false },
+  { label: 'Natural', disabled: false },
+  { label: 'Dynamic / Comic Book Storyboard', disabled: true },
+  { label: 'Doodle Storyboard', disabled: true },
+  { label: 'Anime Style Storyboard', disabled: true }
 ];
+const shots = Array.from({ length: 8 }, (_, index) => index + 1);
 
 export function WorkingStoryboardDemo() {
   const [scene, setScene] = useState(starter);
-  const [style, setStyle] = useState('Cinematic sketch');
-  const [done, setDone] = useState(false);
   const tokens = useMemo(() => Math.max(120, Math.min(240, scene.trim().length + 88)), [scene]);
 
   return (
@@ -28,37 +28,120 @@ export function WorkingStoryboardDemo() {
           <span>Scene or story idea</span>
           <textarea value={scene} onChange={(event) => setScene(event.target.value)} />
         </label>
-        <label className="bd-field">
+        <div className="bd-field">
           <span>Visual style</span>
-          <select value={style} onChange={(event) => setStyle(event.target.value)}>
-            <option>Cinematic sketch</option>
-            <option>Realistic storyboard</option>
-            <option>3D blocking</option>
-            <option>Animated family style</option>
-          </select>
-        </label>
+          <div className="bd-style-control">
+            {visualStyles.filter((visualStyle) => !visualStyle.disabled).map((visualStyle, index) => (
+              <input
+                key={visualStyle.label}
+                className="bd-style-radio"
+                type="radio"
+                name="visual-style"
+                id={`visual-style-${index + 1}`}
+                defaultChecked={index === 0}
+              />
+            ))}
+            <details className="bd-style-picker">
+              <summary className="bd-style-picker-trigger">
+                <span className="bd-style-current">
+                  <span className="bd-style-current-1">Sketch</span>
+                  <span className="bd-style-current-2">Cinematic Realism</span>
+                  <span className="bd-style-current-3">Natural</span>
+                </span>
+                <span aria-hidden="true">⌄</span>
+              </summary>
+              <div className="bd-style-picker-menu" role="listbox" aria-label="Visual style">
+                {visualStyles.map((visualStyle, index) => visualStyle.disabled ? (
+                  <div
+                    key={visualStyle.label}
+                    className="bd-style-picker-option disabled"
+                    role="option"
+                    aria-disabled="true"
+                    tabIndex={0}
+                    data-tooltip="Upgrade your plan to use"
+                  >
+                    {visualStyle.label}
+                  </div>
+                ) : (
+                  <label
+                    key={visualStyle.label}
+                    className="bd-style-picker-option"
+                    role="option"
+                    htmlFor={`visual-style-${index + 1}`}
+                  >
+                    {visualStyle.label}
+                  </label>
+                ))}
+              </div>
+            </details>
+          </div>
+        </div>
         <div className="bd-demo-row">
           <span>{tokens} preview tokens</span>
-          <span>6 panels</span>
+          <span>8 panels</span>
           <span>Watermarked</span>
         </div>
-        <button className="bd-primary-button" type="button" onClick={() => setDone(true)}>
-          {done ? 'Preview created' : 'Create storyboard preview'}
+        <button
+          className="bd-primary-button"
+          type="button"
+          popoverTarget="storyboard-sso-modal"
+          popoverTargetAction="show"
+        >
+          Create storyboard preview
         </button>
+        <StoryboardSSOModal />
       </div>
+
       <div className="bd-demo-output">
         <div className="bd-preview-header">
-          <strong>{done ? 'Storyboard ready' : 'Preview will appear here'}</strong>
-          <small>{style}</small>
+          <strong>Storyboard preview</strong>
+          <small>8 image-only shots</small>
         </div>
-        <div className="bd-preview-panels">
-          {panels.map(([num, title, body]) => (
-            <article key={num} className={done ? 'active' : ''}>
-              <b>{num}</b>
-              <strong>{title}</strong>
-              <small>{body}</small>
-            </article>
+        <div className="bd-storyboard-sheet">
+          <img
+            src="/storyboard-playground-shots.png"
+            alt="Eight-shot playground storyboard showing a boy, a woman, and a ball"
+          />
+        </div>
+
+        <div className="bd-shot-carousel" aria-label="Storyboard shot carousel">
+          {shots.map((shot) => (
+            <input
+              key={shot}
+              className="bd-shot-radio"
+              type="radio"
+              name="storyboard-shot"
+              id={`storyboard-shot-${shot}`}
+              defaultChecked={shot === 1}
+            />
           ))}
+          {shots.map((shot) => {
+            const previous = shot === 1 ? shots.length : shot - 1;
+            const next = shot === shots.length ? 1 : shot + 1;
+            return (
+              <div className={`bd-shot-slide bd-shot-slide-${shot}`} key={shot}>
+                <div className="bd-shot-carousel-head">
+                  <strong>Browse individual shots</strong>
+                  <span>Shot {shot} of {shots.length}</span>
+                </div>
+                <div className={`bd-shot-frame bd-shot-frame-${shot}`} role="img" aria-label={`Storyboard shot ${shot}`} />
+                <div className="bd-shot-controls">
+                  <label htmlFor={`storyboard-shot-${previous}`} aria-label="Previous storyboard shot">&larr;</label>
+                  <div className="bd-shot-dots" aria-label="Choose a storyboard shot">
+                    {shots.map((targetShot) => (
+                      <label
+                        key={targetShot}
+                        htmlFor={`storyboard-shot-${targetShot}`}
+                        className={targetShot === shot ? 'active' : ''}
+                        aria-label={`Show storyboard shot ${targetShot}`}
+                      />
+                    ))}
+                  </div>
+                  <label htmlFor={`storyboard-shot-${next}`} aria-label="Next storyboard shot">&rarr;</label>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -48,7 +48,7 @@
     "standard-footer-check": "node scripts/standard-footer-check.mjs"
   },
   "dependencies": {
-    "next": "^15.5.0",
+    "next": "^16.3.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
@@ -59,6 +59,6 @@
     "typescript": "^5.9.0"
   },
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=20.9.0"
   }
 }
