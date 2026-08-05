@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { StoryboardSSOModal } from '@/components/StoryboardSSOModal';
 
 const starter = 'A filmmaker opens a glowing studio door and steps into a living movie world.';
 const visualStyles = [
@@ -15,7 +16,6 @@ const shots = Array.from({ length: 8 }, (_, index) => index + 1);
 
 export function WorkingStoryboardDemo() {
   const [scene, setScene] = useState(starter);
-  const [done, setDone] = useState(false);
   const tokens = useMemo(() => Math.max(120, Math.min(240, scene.trim().length + 88)), [scene]);
 
   return (
@@ -81,14 +81,20 @@ export function WorkingStoryboardDemo() {
           <span>8 panels</span>
           <span>Watermarked</span>
         </div>
-        <button className="bd-primary-button" type="button" onClick={() => setDone(true)}>
-          {done ? 'Preview created' : 'Create storyboard preview'}
+        <button
+          className="bd-primary-button"
+          type="button"
+          popoverTarget="storyboard-sso-modal"
+          popoverTargetAction="show"
+        >
+          Create storyboard preview
         </button>
+        <StoryboardSSOModal />
       </div>
 
       <div className="bd-demo-output">
         <div className="bd-preview-header">
-          <strong>{done ? 'Storyboard ready' : 'Storyboard preview'}</strong>
+          <strong>Storyboard preview</strong>
           <small>8 image-only shots</small>
         </div>
         <div className="bd-storyboard-sheet">
